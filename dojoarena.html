@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Dojo Arena</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="dojoarena.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.players').hide();
+
+            $('.location').hover(function(){
+                var fight_arena = $(this).attr('src');
+                $("#world").css("background-image" , "url(" + fight_arena + ")");
+            }, function(){
+                $('#world').css("background-image", "")
+            });
+
+            $('.location').click(function(){
+                $('.players').toggle();
+                $('.backgrounds').html('');
+                var fight_arena = $(this).attr('src');
+                $("#world").css("background-image" , "url(" + fight_arena + ")");
+                // $('.select_arena').html("<h2>Select Players</h2><form><select class='player1'><option class='choice' name='Donny' src='donny.png'>Donny</option><option class='choice' name='Leo' src='leo.png'>Leo</option><option class='choice' name='Mikey' src='mikey.png'>Mikey</option><option class='choice' name='Raphael' src='raphael.png'>Raphael</option></select><select class='player2'><option class='choice' name='Donny' src='donny.png'>Donny</option><option class='choice' name='Leo' src='leo.png'>Leo</option><option class='choice' name='Mikey' src='mikey.png'>Mikey</option><option class='choice' name='Raphael' src='raphael.png'>Raphael</option></select></form>");
+            });
+
+            $('.player1').change(function(){
+                var ninja = $(this).val();
+                $('#world').append('<div class="mydude1"></div>');
+                $('.mydude1').css('background-image' , 'url(' + ninja + ')');
+            });
+
+            $('.player2').change(function(){
+                var ninja = $(this).val();
+                $('#world').append('<div class="mydude2"></div>');
+                $('.mydude2').css('background-image' , 'url(' + ninja + ')');
+            })
+            
+
+        });
+    </script>
+</head>
+<body>
+    <div id="world">
+        <div class="select_arena">
+            <div class="backgrounds">
+                <h2>Select Arena</h2>
+                <div class="location" src="beach.jpg">beach</div>
+                <div class="location" src="earth.jpg">planet</div>
+                <div class="location" src="dojo.jpg">dojo</div>
+                <div class="location" src="forest.jpg">forest</div>
+                <div class="location" src="matrix.jpg">matrix</div>
+                <div class="location" src="snow.jpg">snow</div>
+            </div>
+    
+            <div class="players"> 
+                <h2>Select Players</h2>       
+                <select class="player1">
+                    <option name="Donny" value="donny.png">Donny</option>
+                    <option name="Leo" value="leo.png">Leo</option>
+                    <option name="Mikey" value="mikey.png">Mikey</option>
+                    <option name="Raphael" value="raphael.png">Raphael</option>
+                </select>
+                <select class="player2">
+                    <option name="Donny" value="donny.png">Donny</option>
+                    <option name="Leo" value="leo.png">Leo</option>
+                    <option name="Mikey" value="mikey.png">Mikey</option>
+                    <option name="Raphael" value="raphael.png">Raphael</option>
+                </select>
+            </div>
+        </div>  
+    </div>
+</body>
+</html>
